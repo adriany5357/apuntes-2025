@@ -20,12 +20,16 @@ export class CalculadoraComponent {
     if(!(number1&&number2)) return;
     if(operation === 'suma') {
       this.result = number1 + number2;
+      return console.log("se hahecho una suma");
     } else if (operation === 'resta') {
       this.result = number1 - number2;
+      return console.log("se hahecho una suma");
     } else if (operation === 'mult') {
       this.result = number1 * number2;
+      return console.log("se hahecho una suma");
     } else if (operation === 'div') {
       this.result = number1 / number2;
+      return console.log("se hahecho una suma");
     }
   }
 }
