@@ -1,0 +1,54 @@
+<!-- <div>
+    <div>
+        <h1>Paises page</h1>
+    </div>
+    <div class="paises-buscador-container">
+        <div class="buscador-container">
+            <div>
+                <h3>Buscar un país</h3>
+                <input [(ngModel)]="paisBuscar" type="text" placeholder="Introduzca un país">
+            </div>
+            <div>
+                <button (click)="getPaisesWithFetch(paisBuscar)">Buscar pais</button>
+            </div>
+        </div>
+
+        <div *ngIf="paisRecibido" class="pais-container">
+            
+            <div>
+                <h2>Pais: {{paisRecibido.name.common}}</h2>
+                <h3>Capital: {{paisRecibido.capital[0]}}</h3> 
+                <h3>continente: {{continente}}</h3>
+                <img [src]="paisRecibido.flags.png" alt="bandera">
+            </div>
+        </div>
+
+    </div>
+</div> -->
+
+<div>
+    <h1>Paises Page</h1>
+
+    <div class="paises-buscador-container">
+        <div class="buscador-container">
+            <h3>Buscar un país</h3>
+            <input [(ngModel)]="paisBuscar" type="text" placeholder="Introduzca un país">
+            <button (click)="getPaisesWithFetch(paisBuscar)" [disabled]="!paisBuscar.trim()">Buscar País</button>
+        </div>
+
+        <div *ngIf="error&&!paisRecibido" class="error-message">
+            <p>No se encontró el país o hubo un error en la búsqueda.</p>
+        </div>
+
+        <div *ngIf="paisRecibido&&!error" class="pais-card animate-card">
+            <div class="card-header">
+                <h2>{{paisRecibido.name?.common}}</h2>
+            </div>
+            <div class="card-body">
+                <img [src]="paisRecibido.flags?.png" alt="Bandera de {{paisRecibido.name?.common}}" class="bandera">
+                <p><strong>Capital:</strong> {{paisRecibido.capital?.[0] || 'No disponible'}}</p>
+                <p><strong>Continente:</strong> {{paisRecibido.region}}</p>
+            </div>
+        </div>
+    </div>
+</div>
